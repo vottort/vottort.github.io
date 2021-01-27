@@ -1,0 +1,74 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>Как проехать на дачу к Саше и Наташе</title>
+<style rel='stylesheet' type='text/css'>
+.float {
+    text-align: center;
+    float: left;
+    border: 0px;
+}
+.left {
+  clear: both;
+    border: 0px;
+}
+</style>
+
+<script>
+function getDeviceType(){
+    // If it an iPhone..
+    if( (navigator.platform.indexOf("iPhone") != -1) 
+        || (navigator.platform.indexOf("iPod") != -1)
+        || (navigator.platform.indexOf("iPad") != -1))
+         return 'iphone';
+    else
+         return 'android';
+}
+  function navigate(lat, lng) {
+    // If it an iPhone..
+    if ((navigator.platform.indexOf("iPhone") !== -1) || (navigator.platform.indexOf("iPod") !== -1)) {
+      function iOSversion() {
+        if (/iP(hone|od|ad)/.test(navigator.platform)) {
+          // supports iOS 2.0 and later: <http://bit.ly/TJjs1V>
+          var v = (navigator.appVersion).match(/OS (\d+)_(\d+)_?(\d+)?/);
+          return [parseInt(v[1], 10), parseInt(v[2], 10), parseInt(v[3] || 0, 10)];
+        }
+      }
+      var ver = iOSversion() || [0];
+
+      if (ver[0] >= 6) {
+        protocol = 'maps://';
+      } else {
+        protocol = 'http://';
+
+      }
+      window.location = protocol + 'maps.apple.com/maps?daddr=' + lat + ',' + lng + '&amp;ll=';
+    }
+    else {
+      window.open('http://maps.google.com?daddr=' + lat + ',' + lng + '&amp;ll=');
+    }
+  }
+
+
+
+</script>
+</head>
+<body>
+<h1>Наш адрес: МО, Ступинский район, дер.Проскурниково, КП Изумрудные холмы, дом 136.</h1>
+
+<div class='float'><a href='yandexmaps://maps.yandex.ru/?pt=37.973958,55.177192&z=12&l=map'><img src='pictures/ym.jpg' width='300'/></a></div>
+<div class='float'><a href='https://30488.redirect.appmetrica.yandex.com/show_point_on_map?appmetrica_tracking_id=745803332332869252&desc=%D0%9A%D0%9F%20%D0%98%D0%B7%D1%83%D0%BC%D1%80%D1%83%D0%B4%D0%BD%D1%8B%D0%B5%20%D0%A5%D0%BE%D0%BB%D0%BC%D1%8B%2C%20136&lang=ru&lat=55.177192&lon=37.973958&subtitle=%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D1%81%D0%BA%D0%BE%D0%B9%20%D0%BE%D0%BA%D1%80%D1%83%D0%B3%20%D0%A1%D1%82%D1%83%D0%BF%D0%B8%D0%BD%D0%BE%2C%20%D0%9C%D0%BE%D1%81%D0%BA%D0%BE%D0%B2%D1%81%D0%BA%D0%B0%D1%8F%20%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D1%8C%2C%20%D0%A0%D0%BE%D1%81%D1%81%D0%B8%D1%8F'><img src='pictures/yn.jpg' width='300'/></a></div>
+
+<div class='left'>
+<h1>Такси Михнево <a href="https://yandex.ru/maps/org/taksi_apelsin/1311611362/">"Апельсин"</a>: +7-985-269-80-80</h1>
+<h1>Такси Михнево <a href="http://mo-taxi.ru/mihnevo/mihnevskoe">"МО-Такси"</a>: +7-800-250-93-15</h1>
+</div>
+<!--
+<div class='noandroid'><a href='comgooglemaps://?q=55.177192,37.973958&zoom=16'><img src='pictures/gm.png' width='300'/></a></div>
+<div class='noandroid'><a href='mapswithme://map?v=1&ll=55.177192,37.973958&n=Дача'><img src='pictures/mm.jpg' width='300'/></a></div>
+
+-->
+
+
+</body>
+</html>
